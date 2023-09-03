@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 2px 2px 3px 2px silver;
+  padding: 10px;
+}
+.brand {
+  margin-left: 5%;
+}
+
+.brand a {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-right: 5%;
+}
+
+.nav-links li {
+  margin-left: 10px;
+}
+
+.nav-links a {
+  color: green;
+  text-decoration: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: start;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.attendance-button,
+.leave-button {
+  background-color: #808080;
+  color: white;
+}
+
+.cancel-button {
+  background-color: green;
+  color: white;
+  position: absolute;
+  right: 0;
+}
+
+.container {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.cancelbutton {
+  background-color: green;
+  color: white;
+  position: absolute;
+  right: 0;
+}
+
+/* attendence pop_up */
+
+.pop_up {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.closes {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* attendance foam design */
+
+#attendanceForm {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+  color: green;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea,
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: green;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+input[type="submit"]:focus {
+  outline: none;
+}
+
+input[type="date"] {
+  padding: 6px;
+}

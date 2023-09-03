@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attendance Data</title>
+    <link rel="stylesheet" href="fetchData.css">
+  </head>
+  <body>
+    <h1>AttandenceDB Data</h1>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Date</th>
+           
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="button-container">
+      <button class="button" id="leaveButton">Leave</button>
+       <button class="button" id="registerButton">Register</button>
+    </div>
+    <script>
+      fetch("http://localhost:8080/attandenceDB")
+        .then((response) => response.json())
+        .then((data) => {
+          const dataBody = document.querySelector("#data-table tbody");
+          data.forEach((item) => {
+            const row = document.createElement("tr");
+            const name = document.createElement("td");
+            const email = document.createElement("td");
+            const date = document.createElement("td");
+            name.textContent = item.name;
+            email.textContent = item.email;
+            date.textContent = item.date;
+            row.appendChild(name);
+            row.appendChild(email);
+            row.appendChild(date);
+            dataBody.appendChild(row);
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+
+      const leaveButton = document.getElementById("leaveButton");
+      leaveButton.addEventListener("click", () => {
+        window.location.href = "/leave";
+      });
+
+      const  registerButton = document.getElementById('registerButton');
+     registerButton.addEventListener('click', () => {
+      window.location.href = '/register';
+    });
+    </script>
+  </body>
+</html>

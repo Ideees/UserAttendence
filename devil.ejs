@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mainHome.css">
+</head>
+<body>
+<%= title %>
+<%=  password %>
+<%=  email %>
+
+    
+    <div class="container">
+        <div class="foam-controller">
+            <div id="head-register" class="foam-Register">
+                <div id="hide-Register"> <!-- Register -->
+                    <h1 id="foam-title">Create Account</h1>
+                    <p id="foam-para">Experience Personalized access like never before.SignUp
+                        today and discover a tailored online
+                        experience.</p>
+                    <button id="btn-Register">SignUp</button>
+                    </p>
+                </div>
+                <div id="hide-login" class="show"> <!-- login -->
+                    <h1 id="foam-title">Login</h1>
+                    <p id="foam-para">A trusted platform for your digital presence.Login and stay connected</p>
+                    <button id="btn-login">Sign In</button>
+                    </p>
+                </div>
+            </div>
+
+                <div id="popupContent" class="popup">
+                <form action="/admin"  method="post"  >
+                <h1 id="login">Admin</h1>
+                <Label id="email">Email</Label><br>
+                <input type="email" name="username" id="email" placeholder="xyz@gmail.com" required><br>
+                <Label id="password">Password</Label><br>
+                <input type="password" name="password" id="password" placeholder="****" required><br>
+                <input type="submit" value="Admin Sigin" id="submit">
+                </form>
+                 <button class="closes" id="closeButton">&times;</button>
+              </div>
+
+            <form action="/login"  method="post" class="foam" id="hide-foam-2">
+                  <button id="popupButton">Admin</button>   <!--this button show pop-up admin  -->
+                <h1 id="login">Sign In</h1>
+                <Label id="email">Email</Label><br>
+                <input type="email" name="email" id="email" placeholder="xyz@gmail.com" required><br>
+                <Label id="password">Password</Label><br>
+
+                <input type="password" name="password" id="password" placeholder="****" required><br>
+                <input type="submit" value="Sign In" id="submit">
+
+            </form>
+            <form action="/register" method="post" class="foam foam-1" id="hide-foam-1" >
+                <h1 id="login">Sign Up</h1>
+                <Label  for="fn">First Name</Label><br>
+                <input type="text" name="name" id="fn" placeholder="xyz" required  ><br>
+
+                <Label  for="ls">Last Name</Label><br>
+                <input type="text" name="namelast" id="fn" placeholder="xyz"  required><br>
+
+                <Label  for="email">Email</Label><br>
+                <input type="email" name="email" id="email" placeholder="xyz@gmail.com" required ><br>
+                <label for="tel">Contact</label><br>
+                <input type="tel" name="tel" id="tel" placeholder="+923***"><br>
+                <Label for="pasword">Password</Label><br>
+                <input type="password" name="password" id="pasword" placeholder="****" required ><br>
+                <Label for="Cpasword">Re-type Password</Label><br>
+                <input type="password" name="Cpassword" id="Cpasword" placeholder="****"  required><br>
+                <input type="submit" value="SignUp" id="submit">
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("btn-Register").addEventListener("click", function abc() {
+            document.getElementById("head-register").classList.add("move");
+            document.getElementById("hide-Register").classList.add("none-register");
+            document.getElementById("hide-login").classList.add("show-login");
+            document.getElementById("hide-foam-1").classList.add("show-foam");
+            document.getElementById("hide-foam-2").classList.add("hide-foam-2");
+            //  document.getElementById("popupButton").style.display = "none";
+        })
+        document.getElementById("btn-login").addEventListener("click", function abc() {
+            document.getElementById("head-register").classList.remove("move");
+            document.getElementById("hide-login").classList.remove("show-login");
+            document.getElementById("hide-Register").classList.remove("none-register");
+            document.getElementById("hide-foam-1").classList.remove("show-foam");
+            document.getElementById("hide-foam-2").classList.remove("hide-foam-2");
+        })
+ popupButton.addEventListener("click", () => {
+    popupContent.style.display = "block";
+    });
+
+ 
+    closeButton.addEventListener("click", () => {
+    popupContent.style.display = "none";
+    });
+    </script>
+</body>
+</html>

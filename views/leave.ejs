@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Leave Data</title>
+  <link rel="stylesheet" href="fetchData.css">
+</head>
+<body>
+  <h1>Leave Data</h1>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Messege</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="button-container">
+    <button class="button" id="registerButton">Register</button>
+    <button class="button" id="attendanceButton">Attendance</button>
+  </div>
+  <script>
+    fetch('http://localhost:8080/leaveDB') 
+      .then(response => response.json())
+      .then(data => {
+        const dataBody = document.querySelector('#data-table tbody');
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          const name = document.createElement('td');
+          const email = document.createElement('td');
+            const  date = document.createElement('td');
+          const  msg = document.createElement('td');
+
+          name.textContent = item.name;
+          email.textContent = item.email;
+         date.textContent = item.date;
+           msg.textContent = item.message;  
+
+          row.appendChild(name);
+          row.appendChild(email);
+            row.appendChild(date);
+          row.appendChild(msg);
+          dataBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+    const  registerButton = document.getElementById('registerButton');
+     registerButton.addEventListener('click', () => {
+      window.location.href = '/register';
+    });
+    const attendanceButton = document.getElementById('attendanceButton');
+    attendanceButton.addEventListener('click', () => {
+      window.location.href = '/attendence';
+    });
+  </script>
+</body>
+</html>

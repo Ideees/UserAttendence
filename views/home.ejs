@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+  </head>
+  <body>
+    <!-- user front face -->
+    <nav class="navbar">
+      <div class="brand">
+        <a href="#">Logo</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#"><%= title %></a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+<!-- change the click attendance leave container -->
+    <div class="button-container">
+      <button
+        class="attendance-button"
+        id="btn-atten"
+        onclick="toggleContainer('attendance')">
+        Attendance
+        </button>
+      <button
+        class="leave-button"
+        id="btn-leave"
+        onclick="toggleContainer('leave')"
+      >
+        Leave
+      </button>
+      <button class="cancel-button" onclick="showPopup()">Leave</button>
+    </div>
+
+    <div class="container" id="attendance-container">
+      <button class="cancelbutton" onclick="showPop_up()">
+        Mark Attendance
+      </button>
+      <div class="pop_up" id="custompopup">
+        <span class="closes" onclick="closePop_up()">&times;</span>
+   <form action="/attendance" method="post" id="attendanceForm">
+  <label for="name">Enter Name</label><br>
+  <input type="text" name="name" id="name" placeholder="xyz" required><br>
+  <label for="email">Enter Email</label><br>
+  <input type="email" name="email" id="email" placeholder="@gmail.com" required><br>
+  <label for="date">Select Date</label><br>
+  <input type="date" name="date" id="date" required><br>
+  <input type="submit" value="Mark Attendance" id="submit">
+</form>
+
+    
+</div>
+      </div>
+    </div>
+
+    <div class="container" id="leave-container">Leave Container</div>
+    <div class="popup" id="custom-popup">
+      <span class="close" onclick="closePopup()">&times;</span>
+       <form action="/leave" method="post" id="attendanceForm">
+  <label for="name">Enter Name</label><br>
+  <input type="text" name="name" id="name" placeholder="xyz"  required><br>
+  <label for="email">Enter Email</label><br>
+  <input type="email" name="email" id="email" placeholder="@gmail.com" required><br>
+  <label for="date">Select Date</label><br>
+  <input type="date" name="date" id="date" required><br>
+  <label for="message">Message</label><br>
+  <textarea name="message" id="message" placeholder="Enter your message" required></textarea><br>
+  <input type="submit" value="Request Leave" id="submit">
+</form>
+
+    </div>
+
+    <script>
+      function toggleContainer(containerId) {
+        var attendanceContainer = document.getElementById(
+          "attendance-container"
+        );
+        var leaveContainer = document.getElementById("leave-container");
+
+        attendanceContainer.style.display =
+          containerId === "attendance" ? "block" : "none";
+        leaveContainer.style.display =
+          containerId === "leave" ? "block" : "none";
+
+        document.getElementById("btn-atten").style.backgroundColor =
+          containerId === "attendance" ? "green" : "#808080";
+        document.getElementById("btn-leave").style.backgroundColor =
+          containerId === "leave" ? "green" : "#808080";
+      }
+// leave  popp
+      function showPopup() {
+        document.getElementById("custom-popup").style.display = "block";
+      }
+
+      function closePopup() {
+        document.getElementById("custom-popup").style.display = "none";
+      }
+// attendence
+      function showPop_up() {
+        document.getElementById("custompopup").style.display = "block";
+      }
+
+      
+      function closePop_up() {
+        document.getElementById("custompopup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
